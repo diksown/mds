@@ -9,29 +9,30 @@ def shell():
 
 	
 def socorro(op):
-	ajuda = \
-	 "mds ([m]atematica [d]iscreta [s]imulator) eh uma shell interativa\n"\
-	+"com funcoes comumente utilizadas no estudo de teoria dos numeros\n"\
-	+"e criptografia.\n"\
-	+"\n"\
-	+"comandos:\n"\
-	+"    socorro [scr]    (argumentos: nenhum)\n"\
-	+"        mostra (esse) menu de ajuda\n"\
-	+"\n"\
-	+"    elevar [ele]    (argumentos: A, E, [N])\n"\
-	+"        calcula A^E, ou A^E modulo N, caso esse seja dado\n"\
-	+"\n"\
-	+"    fatorar [fat]    (argumentos: N)\n"\
-	+"        fatora o numero N. (se ele nao for muito grande, claro)\n"\
-	+"\n"\
-	+"    mdc    (argumentos: A, B)\n"\
-	+"        calcula o mdc entre A e B\n"\
-	+"\n"\
-	+"    info    (argumentos: nenhum)\n"\
-	+"        mostra informacoes sobre o projeto\n"\
-	+"\n"\
-	+"    sair    (argumentos: nenhum)\n"\
-	+"        termina o programa x_X\n"
+	ajuda = '\n'.join([
+	"mds ([m]atematica [d]iscreta [s]imulator) eh uma shell interativa",
+	"com funcoes comumente utilizadas no estudo de teoria dos numeros",
+	"e criptografia.",
+	"",
+	"comandos:",
+	"    socorro [scr]    (argumentos: nenhum)",
+	"        mostra (esse) menu de ajuda",
+	"",
+	"    elevar [ele]    (argumentos: A, E, [N])",
+	"        calcula A^E, ou A^E modulo N, caso esse seja dado",
+	"",
+	"    fatorar [fat]    (argumentos: N)",
+	"        fatora o numero N. (se ele nao for muito grande, claro)",
+	"",
+	"    mdc    (argumentos: A, B)",
+	"        calcula o mdc entre A e B",
+	"",
+	"    info    (argumentos: nenhum)",
+	"        mostra informacoes sobre o projeto",
+	"",
+	"    sair    (argumentos: nenhum)",
+	"        termina o programa x_n"
+	])
 	print(ajuda)
 
 def erro(msg):
