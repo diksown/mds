@@ -34,14 +34,17 @@ def socorro(op):
 	+"        termina o programa x_X\n"
 	print(ajuda)
 
+def erro(msg):
+	print("\033[1;31merro:\033[0;0m "+msg)
+
 def elevar(op):
 	if len(op) > 4 or len(op) < 3:
-		print("numero de argumentos invalido.")
+		erro("numero de argumentos invalido.")
 		return
 
 	for i in op[1:]:
 		if not i.isdigit():
-			print("use apenas inteiros nao-negativos")
+			erro("use apenas inteiros nao-negativos")
 			return
 
 	if len(op) == 3:
@@ -51,24 +54,24 @@ def elevar(op):
 	elif len(op) == 4:
 		a, e, n = map(int, op[1:])
 		if n == 0:
-			print("o modulo precisa ser >0.")
+			erro("o modulo precisa ser >0.")
 			return
 		print(f"{a}^{e} (mod {n}) = {pow(a, e, n)}")
 
 
 def fatorar(op):
 	if len(op) != 2:
-		print("numero de argumentos invalido.")
+		erro("numero de argumentos invalido.")
 		return 
 
 	if not op[1].isdigit() or int(op[1]) <= 1:
-		print("o numero precisa ser um inteiro >1.")
+		erro("o numero precisa ser um inteiro >1.")
 		return
 
 	n = int(op[1])
 
 	if n > 10**14:
-		print("esse numero eh muito grande pra ser fatorado.")
+		erro("esse numero eh muito grande pra ser fatorado.")
 		return
 
 	i = 2
@@ -89,12 +92,12 @@ def fatorar(op):
 
 def mdc(op):
 	if len(op) != 3:
-		print("numero de argumentos invalido.")
+		erro("numero de argumentos invalido.")
 		return
 
 	a, b = op[1], op[2]
 	if not a.isdigit() or not b.isdigit() or int(a) == 0 or int(b) == 0:
-		print("os argumentos precisam ser dois inteiros positivos.")
+		erro("os argumentos precisam ser dois inteiros positivos.")
 		return
 
 	a, b = int(a), int(b)
@@ -132,7 +135,7 @@ def main():
 		if op[0] in opcoes:
 			opcoes[op[0]](op)
 		else:
-			print(f"\"{op[0]}\" nao eh uma operacao valida.")
+			erro(f"\"{op[0]}\" nao eh uma operacao valida.")
 			print("mande <socorro> pra listar as operacoes.")
 
 
