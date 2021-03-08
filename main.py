@@ -6,22 +6,26 @@ def shell():
 		return [""]
 	else:
 		return argumentos
+
 	
 def socorro(op):
 	print()
-	print("MDS (Matematica Discreta Simulator) eh um programa interativo")
+	print("mds ([m]atematica [d]iscreta [s]imulator) eh uma shell interativa")
 	print("com funcoes comumente utilizadas no estudo de teoria dos numeros")
 	print("e criptografia.")
 	print("")
 	print("comandos:")
-	print("    socorro    (argumentos: nenhum)")
-	print("        mostra esse menu aqui")
+	print("    socorro [scr]    (argumentos: nenhum)")
+	print("        mostra (esse) menu de ajuda")
 	print("")
-	print("    fatorar    (argumentos: N)")
-	print("        fatora o numero N. se ele nao for muito grande, claro")
-	print("")
-	print("    elevar    (argumentos: A, E, [N])")
+	print("    elevar [ele]    (argumentos: A, E, [N])")
 	print("        calcula A^E, ou A^E modulo N, caso esse seja dado")
+	print("")
+	print("    fatorar [fat]    (argumentos: N)")
+	print("        fatora o numero N. (se ele nao for muito grande, claro)")
+	print("")
+	print("    mdc    (argumentos: A, B)")
+	print("        calcula o mdc entre A e B")
 	print("")
 	print("    info    (argumentos: nenhum)")
 	print("        mostra informacoes sobre o projeto")
@@ -33,10 +37,11 @@ def socorro(op):
 def elevar(op):
 	if len(op) > 4 or len(op) < 3:
 		print("numero de argumentos invalido.")
+		return
 
 	for i in op[1:]:
 		if not i.isdigit():
-			print("apenas inteiros nao-negativos, por favor.")
+			print("use apenas inteiros nao-negativos")
 			return
 
 	if len(op) == 3:
@@ -52,7 +57,20 @@ def elevar(op):
 
 
 def fatorar(op):
+	if len(op) != 2:
+		print("numero de argumentos invalido.")
+		return 
+
+	if not op[1].isdigit() or int(op[1]) <= 1:
+		print("o numero precisa ser um inteiro >1.")
+		return
+
 	n = int(op[1])
+
+	if n > 10**14:
+		print("esse numero eh muito grande pra ser fatorado.")
+		return
+
 	i = 2
 	div = []
 	while i*i <= n:
@@ -62,36 +80,52 @@ def fatorar(op):
 		i += 1
 	if n > 1:
 		div.append(n)
+
 	div.sort()
 	div = list(map(str, div))
 	n = int(op[1])
 	print(f"{n} = {'*'.join(div)}")
 
+
 def mdc(op):
-	a, b = int(op[1]), int(op[2])
-	print("mdc({a}, {b}) = {gcd(a, b)}")
+	if len(op) != 3:
+		print("numero de argumentos invalido.")
+		return
+
+	a, b = op[1], op[2]
+	if not a.isdigit() or not b.isdigit() or int(a) == 0 or int(b) == 0:
+		print("os argumentos precisam ser dois inteiros positivos.")
+		return
+
+	a, b = int(a), int(b)
+	print(f"mdc({a}, {b}) = {gcd(a, b)}")
+	
 
 def info(op):
-	print("mds eh um projeto em python3. fique a vontade pra contribuir!")
+	print("mds eh um projeto em python3 mantido por @diksown no github.")
+	print("fique a vontade pra contribuir!")
 	print("github.com/diksown/mds")
 
-def sair(op):
-	print("== encerrando programa. bons estudos ;) ==")
-	exit()
 
-opcoes = {
-	"socorro" : socorro, 
-	"elevar" : elevar, 
-	"fatorar" : fatorar, 
-	"mdc" : mdc,
-	"info" : info,
-	"sair" : sair
-}
+def sair(op):
+	print("==] encerrando programa. bons estudos ;) [==")
+	exit()
 
 
 def main():
-	print("bem vindo ao mds - [m]atematica [d]iscreta [s]imulator!")
-	print("digite <socorro> pra ver as opcoes disponiveis.")
+	print("[mds] -  digite <socorro> ou <info> para mais informacoes.")
+
+	opcoes = {
+		"socorro" : socorro, 
+		"scr" : socorro,
+		"elevar" : elevar, 
+		"ele" : elevar,
+		"fatorar" : fatorar, 
+		"fat": fatorar,
+		"mdc" : mdc,
+		"info" : info,
+		"sair" : sair
+	}
 
 	while True:
 		op = shell()
