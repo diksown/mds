@@ -13,3 +13,10 @@ mds (**m**atemática **d**iscreta **s**imulator) é uma shell interativa escrita
 
 ### instalação:
 baixe o arquivo `main.py` e execute com `python3 main.py` no seu terminal.
+
+### possíveis melhorias futuras:
+- algoritmo de pollard rho para uma fatoração mais eficiente
+- algoritmo de euclides extendido
+- inverso modular
+- suporte para exponenciação de números negativos
+- teste de primalidade de miller rabin
