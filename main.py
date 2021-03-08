@@ -1,3 +1,5 @@
+from math import gcd
+
 def shell():
 	argumentos = input("mds> ").split()
 	if len(argumentos) == 0:
@@ -65,6 +67,10 @@ def fatorar(op):
 	n = int(op[1])
 	print(f"{n} = {'*'.join(div)}")
 
+def mdc(op):
+	a, b = int(op[1]), int(op[2])
+	print("mdc({a}, {b}) = {gcd(a, b)}")
+
 def info(op):
 	print("mds eh um projeto em python3. fique a vontade pra contribuir!")
 	print("github.com/diksown/mds")
@@ -77,12 +83,14 @@ opcoes = {
 	"socorro" : socorro, 
 	"elevar" : elevar, 
 	"fatorar" : fatorar, 
+	"mdc" : mdc,
+	"info" : info,
 	"sair" : sair
 }
 
 
 def main():
-	print("bem vindo ao MDS - Matematica Discreta Simulator!")
+	print("bem vindo ao mds - [m]atematica [d]iscreta [s]imulator!")
 	print("digite <socorro> pra ver as opcoes disponiveis.")
 
 	while True:
