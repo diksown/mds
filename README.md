@@ -1,4 +1,4 @@
-# mds 🙏
+# mds
 
 mds (**m**atemática **d**iscreta **s**imulator) é uma shell interativa escrita em python, com alguns algoritmos recorrentes relacionados à teoria dos números e criptografia RSA, com objetivo de auxiliar estudantes no processo de aprendizado de matemática discreta.
 

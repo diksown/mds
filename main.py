@@ -9,30 +9,30 @@ def shell():
 
 	
 def socorro(op):
-	print()
-	print("mds ([m]atematica [d]iscreta [s]imulator) eh uma shell interativa")
-	print("com funcoes comumente utilizadas no estudo de teoria dos numeros")
-	print("e criptografia.")
-	print("")
-	print("comandos:")
-	print("    socorro [scr]    (argumentos: nenhum)")
-	print("        mostra (esse) menu de ajuda")
-	print("")
-	print("    elevar [ele]    (argumentos: A, E, [N])")
-	print("        calcula A^E, ou A^E modulo N, caso esse seja dado")
-	print("")
-	print("    fatorar [fat]    (argumentos: N)")
-	print("        fatora o numero N. (se ele nao for muito grande, claro)")
-	print("")
-	print("    mdc    (argumentos: A, B)")
-	print("        calcula o mdc entre A e B")
-	print("")
-	print("    info    (argumentos: nenhum)")
-	print("        mostra informacoes sobre o projeto")
-	print("")
-	print("    sair    (argumentos: nenhum)")
-	print("        termina o programa x_X")
-
+	ajuda = \
+	 "mds ([m]atematica [d]iscreta [s]imulator) eh uma shell interativa"
+	+"com funcoes comumente utilizadas no estudo de teoria dos numeros"
+	+"e criptografia."
+	+""
+	+"comandos:"
+	+"    socorro [scr]    (argumentos: nenhum)"
+	+"        mostra (esse) menu de ajuda"
+	+""
+	+"    elevar [ele]    (argumentos: A, E, [N])"
+	+"        calcula A^E, ou A^E modulo N, caso esse seja dado"
+	+""
+	+"    fatorar [fat]    (argumentos: N)"
+	+"        fatora o numero N. (se ele nao for muito grande, claro)"
+	+""
+	+"    mdc    (argumentos: A, B)"
+	+"        calcula o mdc entre A e B"
+	+""
+	+"    info    (argumentos: nenhum)"
+	+"        mostra informacoes sobre o projeto"
+	+""
+	+"    sair    (argumentos: nenhum)"
+	+"        termina o programa x_X"
+	print(ajuda)
 
 def elevar(op):
 	if len(op) > 4 or len(op) < 3:
